@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dolqiybbputs0"]
+
+[ext_resource type="Texture2D" uid="uid://bwia5va1k1tah" path="res://Sprites/Overworld/x_mas_tree.png" id="1_oasf8"]
+
+[node name="Sprite2D" type="Sprite2D"]
+y_sort_enabled = true
+position = Vector2(194, 57)
+scale = Vector2(1.8125, 2)
+texture = ExtResource("1_oasf8")
+
+[node name="static" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="static"]
+polygon = PackedVector2Array(-0.551727, -2.5, -10.4828, 13.5, 13.2414, 13.5)

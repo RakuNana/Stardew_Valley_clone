@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0xjldx6j2v3n"]
+
+[ext_resource type="PackedScene" uid="uid://5ogbjonar7f4" path="res://Characters/coletta.tscn" id="1_8lhm6"]
+[ext_resource type="PackedScene" uid="uid://e7k07stp0tnw" path="res://objects/tile_highlighter.tscn" id="4_nmgav"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Coletta" parent="." instance=ExtResource("1_8lhm6")]
+
+[node name="HL" parent="." instance=ExtResource("4_nmgav")]

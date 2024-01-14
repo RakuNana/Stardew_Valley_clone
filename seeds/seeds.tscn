@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3sn80wv6tqom"]
+
+[ext_resource type="Script" path="res://Scripts/seeds.gd" id="1_wjs6u"]
+[ext_resource type="Resource" uid="uid://g6itchohvr5b" path="res://Resources/Seed_data_resource.tres" id="2_66huq"]
+[ext_resource type="Texture2D" uid="uid://ca1ci8eu3lt1w" path="res://Sprites/Overworld/seed_sprites/pink_seed.png" id="2_b7gk0"]
+[ext_resource type="Script" path="res://seeds/Soil_checker.gd" id="2_ysygw"]
+[ext_resource type="Script" path="res://seeds/seed_life_cycle.gd" id="3_htpoj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bl7r0"]
+radius = 3.16228
+
+[node name="Button" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_wjs6u")
+get_seed_data = ExtResource("2_66huq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_ysygw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("CircleShape2D_bl7r0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(8, 8)
+texture = ExtResource("2_b7gk0")
+script = ExtResource("3_htpoj")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]

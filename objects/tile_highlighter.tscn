@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://e7k07stp0tnw"]
+
+[ext_resource type="Texture2D" uid="uid://cvjc8le5ssaec" path="res://Sprites/Overworld/over_world_tilesets/Highlighter_soil.png" id="1_dvpdh"]
+
+[node name="HL" type="Sprite2D"]
+position = Vector2(-56, -56)
+texture = ExtResource("1_dvpdh")

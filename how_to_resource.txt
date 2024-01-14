@@ -1,0 +1,3 @@
+create a new script, inherit resource. Give a class name. Create a resource, and find name of resource
+
+for Tilesets, organize tiles that are related. Farm tiles shouldn't be in desert tiles and vice-versa

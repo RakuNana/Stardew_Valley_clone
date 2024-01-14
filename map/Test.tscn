@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://colr2uqti47il"]
+
+[ext_resource type="Script" path="res://map/Farm.gd" id="1_t3tfg"]
+[ext_resource type="PackedScene" uid="uid://clomvk3vtuw2l" path="res://objects/farm_tiles.tscn" id="2_3ybkp"]
+[ext_resource type="PackedScene" uid="uid://5ogbjonar7f4" path="res://Characters/coletta.tscn" id="5_c2qul"]
+[ext_resource type="PackedScene" uid="uid://e7k07stp0tnw" path="res://objects/tile_highlighter.tscn" id="8_5ngwv"]
+
+[node name="Farm" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_t3tfg")
+
+[node name="soil" parent="." instance=ExtResource("2_3ybkp")]
+
+[node name="Coletta" parent="." instance=ExtResource("5_c2qul")]
+y_sort_enabled = true
+position = Vector2(120, 36)
+
+[node name="HL" parent="." instance=ExtResource("8_5ngwv")]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://coiv8v4m4q8xx"]
+
+[ext_resource type="Texture2D" uid="uid://jpuwq7ga1f7d" path="res://Sprites/Overworld/seed_sprites/seedling_life_cycle.png" id="1_d3iva"]
+[ext_resource type="Script" path="res://seeds/seed_life_cycle.gd" id="2_x5oa1"]
+[ext_resource type="Resource" uid="uid://g6itchohvr5b" path="res://Resources/Seed_data_resource.tres" id="3_48gi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxric"]
+size = Vector2(16, 16)
+
+[node name="Plant" type="Sprite2D"]
+z_as_relative = false
+position = Vector2(56, 48)
+texture = ExtResource("1_d3iva")
+offset = Vector2(0, -4)
+hframes = 6
+frame = 4
+script = ExtResource("2_x5oa1")
+get_seed_data = ExtResource("3_48gi0")
+metadata/_edit_group_ = true
+
+[node name="plant_area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plant_area"]
+shape = SubResource("RectangleShape2D_nxric")
