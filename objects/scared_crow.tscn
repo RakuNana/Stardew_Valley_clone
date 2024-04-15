@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dia0qk30wgs8n"]
+
+[ext_resource type="Texture2D" uid="uid://cpxbrfe0t7gvo" path="res://Sprites/Overworld/farming_objects/ScaredCrow.png" id="1_r24bh"]
+[ext_resource type="Script" path="res://objects/scared_crow.gd" id="2_1l1fs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymfne"]
+radius = 9.0
+height = 21.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4cah"]
+size = Vector2(72, 72)
+
+[node name="Scared_crow" type="Sprite2D"]
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_r24bh")
+script = ExtResource("2_1l1fs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-3, -1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, 1.5)
+shape = SubResource("CapsuleShape2D_ymfne")
+
+[node name="protected_area" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="protected_area"]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="protected_area/Area2D"]
+position = Vector2(8.34465e-06, 12)
+shape = SubResource("RectangleShape2D_d4cah")

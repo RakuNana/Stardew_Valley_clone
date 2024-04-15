@@ -1,7 +1,10 @@
 extends Sprite2D
 
+#use statemachine instead?
+
 @export var get_seed_data = Resource
 #add to a dict? Then add age?
+var plant_hp = 5
 var current_cycle = 0
 var is_ripe = false
 
@@ -14,18 +17,22 @@ func harvest_crop():
 	if is_ripe:
 		queue_free()
 		
-func change_name(namer):
+func crop_watered(riped_crop,was_watered):
 	
-	var assign_type = get_seed_data.seed_name
-	#assign_type.seed_name = namer
-	return assign_type
+	if !riped_crop:
 	
+		if was_watered:
+			plant_hp += 1
+			
+		else :
+			
+			plant_hp -= 1
+		
 func age_day():
 	#make global?
 	current_cycle += 1
 
 func get_current_cycle():
-	
 	
 	if current_cycle < 5:
 		

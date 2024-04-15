@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://opk4fa68xudg"]
+
+[ext_resource type="Texture2D" uid="uid://bvu8fqqjgymhq" path="res://Sprites/Menus/Inventory_box_containers.png" id="1_e3c0i"]
+[ext_resource type="Script" path="res://UI/Slot_container.gd" id="1_pgqft"]
+[ext_resource type="Texture2D" uid="uid://d33tby7fcoevp" path="res://Sprites/Menus/Inventory_box_containers_HL.png" id="2_5ee8e"]
+
+[node name="Invo_box_container" type="MarginContainer"]
+offset_right = 16.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_pgqft")
+
+[node name="Slot1" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+focus_mode = 2
+texture = ExtResource("1_e3c0i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HL" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(0.390244, 0.390244)
+texture = ExtResource("2_5ee8e")
+
+[connection signal="mouse_entered" from="Slot1" to="." method="_on_slot_1_mouse_entered"]
+[connection signal="mouse_exited" from="Slot1" to="." method="_on_slot_1_mouse_exited"]

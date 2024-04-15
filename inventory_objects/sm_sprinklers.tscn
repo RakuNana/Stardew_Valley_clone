@@ -1,0 +1,288 @@
+[gd_scene load_steps=13 format=3 uid="uid://6xmosx2qi0f"]
+
+[ext_resource type="Texture2D" uid="uid://w6yvcw7rwkmg" path="res://Sprites/Overworld/farming_objects/sm_sprinkler.png" id="1_xpigw"]
+[ext_resource type="Texture2D" uid="uid://11bmcivpx75j" path="res://Sprites/Overworld/farming_objects/sprinkler_mist.png" id="2_snejt"]
+[ext_resource type="Script" path="res://inventory_objects/sm_sprinklers_placeable.gd" id="2_xrw70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4byd"]
+size = Vector2(10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy2wa"]
+atlas = ExtResource("2_snejt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_834ah"]
+atlas = ExtResource("2_snejt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snthv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy2wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_834ah")
+}],
+"loop": true,
+"name": &"spray",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa5hl"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_a0gj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_3:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spr_1:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spr_2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spr_4:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_punvh"]
+resource_name = "sprinkler_off"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spr_2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spr_3:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spr_4:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_x6158"]
+resource_name = "sprinkler_on"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 2, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spr_2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 2, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spr_3:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 2, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spr_4:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 2, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjybk"]
+_data = {
+"RESET": SubResource("Animation_a0gj7"),
+"sprinkler_off": SubResource("Animation_punvh"),
+"sprinkler_on": SubResource("Animation_x6158")
+}
+
+[node name="sm_sprinkler" type="Sprite2D"]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_xpigw")
+script = ExtResource("2_xrw70")
+
+[node name="spr_1" type="Sprite2D" parent="."]
+position = Vector2(-15, 0)
+texture = ExtResource("2_snejt")
+hframes = 3
+
+[node name="spr_2" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_snejt")
+hframes = 3
+
+[node name="spr_3" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
+texture = ExtResource("2_snejt")
+hframes = 3
+
+[node name="spr_4" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+texture = ExtResource("2_snejt")
+hframes = 3
+
+[node name="mist" type="Node2D" parent="."]
+
+[node name="mist_area" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="mist_L" type="AnimatedSprite2D" parent="mist/mist_area"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_snthv")
+animation = &"spray"
+frame = 1
+frame_progress = 0.659176
+
+[node name="mist_area2" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area2"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="mist_area3" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area3"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="mist_area4" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area4"]
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_qa5hl")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bjybk")
+}
+
+[connection signal="body_shape_entered" from="mist/mist_area" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area" to="." method="_on_mist_area_body_shape_exited"]
+[connection signal="body_shape_entered" from="mist/mist_area2" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area2" to="." method="_on_mist_area_body_shape_exited"]
+[connection signal="body_shape_entered" from="mist/mist_area3" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area3" to="." method="_on_mist_area_body_shape_exited"]
+[connection signal="body_shape_entered" from="mist/mist_area4" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area4" to="." method="_on_mist_area_body_shape_exited"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

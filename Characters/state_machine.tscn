@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Characters/State_Machine.gd" id="1_5q10k"]
 [ext_resource type="Script" path="res://Characters/Interact.gd" id="2_osf3x"]
-[ext_resource type="Script" path="res://Characters/Till_state.gd" id="3_yvgkw"]
+[ext_resource type="Script" path="res://Scripts/Player_scripts/Till_state.gd" id="3_yvgkw"]
 [ext_resource type="Script" path="res://Characters/Water_state.gd" id="4_4w4tw"]
 
 [node name="State_Machine" type="Node"]

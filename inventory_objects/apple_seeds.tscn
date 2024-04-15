@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d14dold4rnhls"]
+
+[ext_resource type="Texture2D" uid="uid://cwl784cj7ux32" path="res://Sprites/Overworld/seed_sprites/apple_seed_cycle.png" id="1_8qlnm"]
+[ext_resource type="Script" path="res://inventory_objects/all_seeds_plant.gd" id="2_xeogc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hf06"]
+size = Vector2(13, 13)
+
+[node name="Plant" type="Sprite2D"]
+texture = ExtResource("1_8qlnm")
+hframes = 6
+script = ExtResource("2_xeogc")
+plant_name = "apples"
+watering_needs = 4
+days_to_change_stage = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 72
+collision_mask = 72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_6hf06")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]

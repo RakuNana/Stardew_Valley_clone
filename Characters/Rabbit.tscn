@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://buwi6ode2chca"]
+
+[ext_resource type="Texture2D" uid="uid://cu33i75gjomfh" path="res://Sprites/Pest/rabbit_pest.png" id="1_2te1p"]
+[ext_resource type="Script" path="res://Characters/Rabbit_pest.gd" id="1_80ybu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x16eb"]
+size = Vector2(14, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtvfl"]
+size = Vector2(12, 5)
+
+[node name="Rabbit" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_80ybu")
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1, 10.5)
+shape = SubResource("RectangleShape2D_x16eb")
+debug_color = Color(0, 0.6, 0, 0.419608)
+
+[node name="body_col" type="CollisionShape2D" parent="."]
+position = Vector2(8, 11)
+shape = SubResource("RectangleShape2D_gtvfl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_2te1p")

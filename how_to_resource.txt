@@ -1,3 +1,7 @@
-create a new script, inherit resource. Give a class name. Create a resource, and find name of resource
+create a new script, inherit resource. Give a class name. Create a resource(right click in "filter files" tab and create), and find name of resource
+
+save new resource to name of what you want(sword,shiled, etc) should be a .tres file
+
+create a new scene and add a script that gets a resource file. Then drag and drop
 
 for Tilesets, organize tiles that are related. Farm tiles shouldn't be in desert tiles and vice-versa

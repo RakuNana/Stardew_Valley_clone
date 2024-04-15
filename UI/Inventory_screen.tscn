@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://2q76j40yffak"]
+
+[ext_resource type="Texture2D" uid="uid://bi7kyjhk3o5m6" path="res://Sprites/Menus/Seed_display.png" id="1_daxm5"]
+[ext_resource type="Script" path="res://UI/new_Inventory_screen.gd" id="2_4vbkj"]
+[ext_resource type="Texture2D" uid="uid://dg0huup7kbuy6" path="res://Sprites/Menus/exit_button.png" id="3_lkq33"]
+
+[node name="Invo_window" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("2_4vbkj")
+
+[node name="Invo_bg" type="TextureRect" parent="."]
+offset_right = 112.0
+offset_bottom = 24.0
+texture = ExtResource("1_daxm5")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 102.0
+offset_top = 14.0
+offset_right = 110.0
+offset_bottom = 22.0
+texture_normal = ExtResource("3_lkq33")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="panel_group" type="GridContainer" parent="."]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 104.0
+offset_bottom = 20.0
+mouse_filter = 2
+columns = 5
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]

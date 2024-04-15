@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://cclabea1fo7k1"]
+
+[ext_resource type="Texture2D" uid="uid://w6yvcw7rwkmg" path="res://Sprites/Overworld/farming_objects/sm_sprinkler.png" id="1_xpigw"]
+[ext_resource type="Script" path="res://Scripts/Object_scripts/Sprinkler_scripts/SM_Sprinkler_stmachine.gd" id="2_7f2a2"]
+[ext_resource type="Texture2D" uid="uid://11bmcivpx75j" path="res://Sprites/Overworld/farming_objects/sprinkler_mist.png" id="2_snejt"]
+[ext_resource type="Script" path="res://Scripts/Object_scripts/Sprinkler_scripts/Sprinkler_statemachine.gd" id="4_ivt06"]
+[ext_resource type="Script" path="res://Scripts/Object_scripts/Sprinkler_scripts/placement_state.gd" id="5_d62o3"]
+[ext_resource type="Script" path="res://Scripts/Object_scripts/Sprinkler_scripts/water_soil_state.gd" id="6_q45yn"]
+[ext_resource type="Script" path="res://Scripts/Object_scripts/Sprinkler_scripts/off_sprinkler_state.gd" id="7_h84lg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4byd"]
+size = Vector2(10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy2wa"]
+atlas = ExtResource("2_snejt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_834ah"]
+atlas = ExtResource("2_snejt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snthv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy2wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_834ah")
+}],
+"loop": true,
+"name": &"spray",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa5hl"]
+size = Vector2(16, 16)
+
+[node name="sm_sprinkler" type="Sprite2D"]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_xpigw")
+script = ExtResource("2_7f2a2")
+
+[node name="mist" type="Node2D" parent="."]
+
+[node name="mist_area" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="mist_L" type="AnimatedSprite2D" parent="mist/mist_area"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_snthv")
+animation = &"spray"
+frame = 1
+frame_progress = 0.659176
+
+[node name="mist_area2" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area2"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="mist_area3" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area3"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="mist_area4" type="Area2D" parent="mist"]
+position = Vector2(-16, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="mist_pos" type="CollisionShape2D" parent="mist/mist_area4"]
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_c4byd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qa5hl")
+
+[node name="Sprinkler_states" type="Node" parent="."]
+script = ExtResource("4_ivt06")
+
+[node name="placement" type="Node" parent="Sprinkler_states"]
+script = ExtResource("5_d62o3")
+
+[node name="water_soil" type="Node" parent="Sprinkler_states"]
+script = ExtResource("6_q45yn")
+
+[node name="off" type="Node" parent="Sprinkler_states"]
+script = ExtResource("7_h84lg")
+
+[connection signal="body_shape_entered" from="mist/mist_area" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area" to="." method="_on_mist_area_body_shape_exited"]
+[connection signal="body_shape_entered" from="mist/mist_area2" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area2" to="." method="_on_mist_area_body_shape_exited"]
+[connection signal="body_shape_entered" from="mist/mist_area3" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area3" to="." method="_on_mist_area_body_shape_exited"]
+[connection signal="body_shape_entered" from="mist/mist_area4" to="." method="_on_mist_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="mist/mist_area4" to="." method="_on_mist_area_body_shape_exited"]
